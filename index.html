@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=utf-8>
+  <title>gross flows UK by age</title>
+  <meta name=description content="Net-flows in the UK by age.">
+  <meta name=viewport content="width=device-width, initial-scale=1.0">
+  <link href="dist/app-v1.css" rel="stylesheet" media="all">
+  
+  <script src="dist/circular-migration-plot.js"></script>
+  <style>
+    body {
+      font: 15px/1.8em Arial, sans-serif;
+      margin: 0;
+      text-align: center;
+    }
+    svg {
+      font-size: 12px;
+      max-width: 100%;
+      vector-effect: non-scaling-stroke;
+    }
+    .info, .label {
+      pointer-events: none;
+    }
+    .info text {
+      fill: white;
+    }
+    #circle circle {
+      fill: none;
+      pointer-events: all;
+    }
+    text {
+      cursor: default;
+      fill: #333;
+    }
+    .group-arc + text {
+      -webkit-transition: opacity 0.4s;
+      -moz-transition: opacity 0.4s;
+      -o-transition: opacity 0.4s;
+      transition: opacity 0.4s;
+    }
+    .group-arc.animate + text {
+      opacity: 0;
+    }
+    #circle path {
+      -webkit-transition: opacity 0.4s;
+      -moz-transition: opacity 0.4s;
+      -o-transition: opacity 0.4s;
+      transition: opacity 0.4s;
+    }
+    #circle:hover path.fade,
+    #circle path.unselected {
+      opacity: 0;
+      pointer-events: none;
+    }
+    text.fade {
+      opacity: 0;
+    }
+    .group-arc {
+      cursor: pointer;
+    }
+    text.region {
+      font-weight: bold;
+    }
+    .chord {
+      opacity: 0.75;
+    }
+    .chord:hover {
+      opacity: 1;
+    }
+  </style>
+  
+</head>
+<body>
+  <div id=container class="container">
+  
+	 <div class="social-wrap">
+		<div class="social">
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="90px" data-show-faces="false" data-font="lucida grande"></div>
+			<div id="plusone-div"></div>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-text="Thanks Tweeps."></a>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+
+   	<header role="banner">
+  		<h1 style="text-align:left">Net-migration flows between city regions by age</h1>
+		
+		<div class="badge">
+        <img src="picture.jpg" style="width:280px"> 
+        </div>
+		
+		<div class="lead-in">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet bibendum nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, 
+		per inceptos himenaeos. Integer mauris lorem, pretium sit amet consequat non, elementum id sem. Quisque malesuada maximus velit. 
+		<br><br>
+		Etiam rutrum maximus augue, vel commodo orci hendrerit nec. Nunc elit est, tristique nec arcu vel, suscipit posuere ex. Cras non commodo nisi, quis efficitur nunc. 
+		In  
+		<a href="http://www.geog.leeds.ac.uk/" target="_blank">dictum eu augue</a>
+		et pharetra. Duis pretium nunc enim, quis hendrerit odio porttitor non. Pellentesque tincidunt ornare mi.
+		<br><br>
+		<a>Good to know:</a> Donec a efficitur mi. Integer congue vestibulum sapien eu congue. Nulla efficitur libero nec odio eleifend, eu imperdiet justo ullamcorper. 
+		Cras ut sapien pretium, luctus enim et, laoreet orci. Vestibulum vel purus in dui lobortis venenatis.  
+		</div>
+	
+		<div class="credits" style="text-align:left">
+        by Donald Duck and Mickey Mouse.
+		<br>
+		<a href="http://www.geog.leeds.ac.uk/" target="_blank">School of Geography</a>, University of Leeds
+		and <a href="http://www.oeaw.ac.at/vid/">Institut für Demographie</a>, Österreichische Akademie der Wissenschaften
+		</div>
+	<hr>
+	</header>	
+
+<div class="credits" style="text-align:center">
+<em>Buttons should be: 2001: 1-65+ | 2001: 1-15  | 2001: 16-49  | 2001: 50-64 | 2001: 65-74 | 2001: 75+ | 2011: 1-65+  | 2011: 1-15  | 2011: 16-49  | 2011: 50-64 | 2011: 65-74 | 2011: 75+</em>
+</div>
+	
+	<div class="wrap">
+		<main role="main">
+		<nav role=navigation>
+		<div id="timeline"></div>
+		</nav>		
+		<div id="chart"></div>
+		</main>
+	</div>
+
+  <script>
+    CircularMigrationPlot({
+      data: 'uk-netflows-by-age.json',
+      chart:{
+		element: '#chart',
+			mylayout: {
+			threshold: 700,
+			labelThreshold: 1000,
+			colors: ['#ADFF2F', '#FF9900', '#D3610B', '#B73901', '#214C82', '#3D7FCF', '#80ABE0', '#7CFC00', '#56AC00']
+			}},
+	  timeline: '#timeline',
+	});
+  </script>
+  
+  	<footer role="contentinfo">
+
+	<hr>
+    
+	<div class="column-wrap-2">
+ 		<div class="column">
+		<div class="column-item">
+			<img src="picture.jpg" alt="Picture">
+ 		</div>
+		</div>
+
+        <div class="column">
+		<div class="column-item" style="text-align:left">
+			<h3>Lorem Lipsum</h3>
+			<p> 
+			DAenean nec metus urna. Integer id aliquet velit, mattis posuere ante. Nulla at aliquam arcu, quis efficitur justo. Nullam ut leo et urna pharetra luctus ut vel diam. 
+			</p>
+			<br>
+			<p>
+			Aenean nec metus urna. Integer id aliquet velit, mattis posuere ante. Nulla at aliquam arcu, quis efficitur justo. Nullam ut leo et urna pharetra luctus ut vel diam. 
+			</p> 
+			<p>
+			Aenean nec metus urna. Integer id aliquet velit, mattis posuere ante. Nulla at aliquam arcu, quis efficitur justo. Nullam ut leo et urna pharetra luctus ut vel diam. 
+			</p> 
+        </div>
+		</div>
+		
+	  <div class="clear"></div>
+      </div>
+
+      <hr>
+		
+		<div class="column-wrap-2">
+ 		<div class="column">
+		<div class="column-item">
+			<iframe src="http://cf.datawrapper.de/aPikW/1/" frameborder="0" allowtransparency="true" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen" width="100%" height="600"></iframe>
+ 		</div>
+		</div>
+        <div class="column">
+		<div class="column-item" style="text-align:left">
+		  <h3>Aenean nec metus urna</h3>
+		  <p> Aenean nec metus urna. Integer id aliquet velit, mattis posuere ante. Nulla at aliquam arcu, quis efficitur justo. Nullam ut leo et urna pharetra luctus ut vel diam. </p>
+		  <br>
+		  <h3>Credits</h3>
+          <p>ONS for the data.</p>
+		  <p><a href="http://null2.net"><img src="null2.png"></a> for coding the circular plot in D3</p>
+          <p><a href="http://elvirastein.com/">Elvira Stein</a> for the webdesign</p>
+		  <p>Mike Bostock for developing<a href="http://d3js.org/">D3.js</a>.</p>
+          </p>
+		  <br>
+		  <h3>Links:</h3>
+			<div class="badge" style="margin: -10px 10px 10px 10px">
+			<img src="global-flow.png" style="width:150px"> 
+			</div>
+			<p style="width:65%">Interactive visualisation of global migration flows: <a href="http://www.global-migration.info" target="_blank">The Global Flow of People</a>.</p>
+			<p>A collection of circular plots: <a href="http://www.circular-world.com" target="_blank">Circular World</a>.</p>
+		</div>
+		</div>
+	
+	  <div class="clear"></div>
+      </div>
+
+      <hr>
+
+		<div class="license">
+		This visualisation is made available under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a> International license. It is hosted on <a href="https://github.com/NikolaSander/nettowanderung-deutschland" target="_blank">Github</a>.</p>
+		<p>Create a visualisation of your own flow data with our <a href="https://github.com/jo/circular-migration-plot"  target="_blank">custom d3.js library</a>.</p> 
+		</div>
+		
+	</div>
+	</footer>
+	
+	 <div id="fb-root"></div>
+	 <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+		{"parsetags": "explicit"}
+	</script>
+	
+	<script>
+		(function() {
+		function loadScript(d,s,l,id){
+		var js,
+		fjs=d.getElementsByTagName(s)[0],
+		p=/^http:/.test(d.location)?'http':'https';
+		if(!id || !d.getElementById(id)){
+		js=d.createElement(s);
+		js.id=id;
+		js.src=p+'://' + l;
+		fjs.parentNode.insertBefore(js,fjs);
+		}
+		}
+		loadScript(document, 'script', 'connect.facebook.net/en_US/all.js#xfbml=1', 'facebook-jssdk');
+		if (typeof gapi === 'object') {
+		gapi.plusone.render("plusone-div", {size: 'medium', annotation: 'bubble', width: '250px'});
+		}
+		loadScript(document, 'script', 'platform.twitter.com/widgets.js', 'twitter-wjs');
+		})();
+	</script>
+	
+
+	
+</body>
+</html>
